@@ -1,5 +1,5 @@
 mariadb-volume/
 backup_docker-compose.yml
 db-data/
-blogseite/css/
-blogseite/js/
+blogseite/css/*
+blogseite/js/*
