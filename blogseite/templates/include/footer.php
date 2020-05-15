@@ -1,7 +1,12 @@
-<div id="footer">
-        Ape Blog &copy; 2020 <a href="admin.php">Site Admin</a>
-      </div>
 
-    </div>
-  </body>
+</div>
+<hr>
+<div>
+  Ape Blog &copy; 2020
+</div>
+
+<script src="js/bootstrap.bundle.js"></script>
+
+</body>
+
 </html>

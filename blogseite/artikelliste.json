@@ -1,16 +1,16 @@
 [{
     "id": 1,
-    "publDate": 1012020,
+    "publDate": "01/01/2020",
     "title": "Titel1",
     "content": "Inhalt1"
 }, {
     "id": 2,
-    "publDate": 2012020,
+    "publDate": "01/02/2020",
     "title": "Titel2",
     "content": "Inhalt2"
 }, {
     "id": 3,
-    "publDate": 3012020,
+    "publDate": "01/03/2020",
     "title": "Titel3",
     "content": "Inhalt3"
 }

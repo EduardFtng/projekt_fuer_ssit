@@ -22,7 +22,7 @@ class Article
     public function __construct($data = array())
     {
         if (isset($data['id'])) $this->id = (int) $data['id'];
-        if (isset($data['publDate'])) $this->publDate = (int) $data['publDate'];
+        if (isset($data['publDate'])) $this->publDate = (string) $data['publDate'];
         if (isset($data['title'])) $this->title = (string) $data['title'];
         if (isset($data['content'])) $this->content = (string) $data['content'];
     }
@@ -64,8 +64,22 @@ class Article
 
     // Printet den Inhalt der Json Datei als Array aus
     public function printJsonList() {
-        $data = file_get_contents("artikelliste.json");
-        print_r(json_decode($data, true));
+        $decoded_data = self::openJson();
+        print_r(json_decode($decoded_data, true));
+    }
+
+    public function getArticleList() {
+        
+        $list = array();
+
+        $decoded_data = self::openJson();
+
+        for($a=0; $a<count($decoded_data); $a++) {
+            
+            $article = new Article($decoded_data[$a]);
+            $list[] = $article;       
+        }
+        return ($list);
     }
 }
 ?>

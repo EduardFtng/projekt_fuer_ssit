@@ -32,24 +32,17 @@ for($a=0; $a<count($decoded_data); $a++) {
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
 switch ( $action ) {
-  case 'archive':
-    archive();
-    break;
   case 'viewArticle':
     viewArticle();
     break;
+  case 'about':
+    about();
+    break;
+  case 'home':
+    homepage();
+    break;
   default:
     homepage();
-}
-
-
-function archive() {
-  $results = array();
-  $data = Article::getList();
-  $results['articles'] = $data['results'];
-  $results['totalRows'] = $data['totalRows'];
-  $results['pageTitle'] = "Article Archive | Widget News";
-  require( TEMPLATE_PATH . "/archive.php" );
 }
 
 function viewArticle() {
@@ -60,22 +53,21 @@ function viewArticle() {
 
   $results = array();
   $results['article'] = Article::getById( (int)$_GET["articleId"] );
-  $results['pageTitle'] = $results['article']->title . " | Widget News";
+  
+  $results['pageTitle'] = $results['article']->title . " | Ape Blog";
   require( TEMPLATE_PATH . "/viewArticle.php" );
 }
 
 function homepage() {
   $results = array();
-  //$data = Article::getList( HOMEPAGE_NUM_ARTICLES );
-  //$results['articles'] = $data['results'];
-  //$results['totalRows'] = $data['totalRows'];
-  $results['pageTitle'] = "Ape Blog";
+  $data = Article::getArticleList();
+  $results['pageTitle'] = "Homepage | Ape Blog";
   require( TEMPLATE_PATH . "/home.php" );
 }
 
-
-
-
-
-
+function about() {
+  $results = array();
+  $results['pageTitle'] = "Über Mich | Ape Blog";
+  require( TEMPLATE_PATH . "/about.php");
+}
 ?>
